@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML - Regole e Dimostrazioni</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff6347;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 3px;
+            transition: all 0.3s;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                border-radius: 0 0 10px 10px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+        }
+
+        #html-content {
+            padding: 40px;
+            background-color: #ffffff;
+            max-width: 800px;
+            margin: 40px auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .code-snippet {
+            background-color: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        @media screen and (max-width: 768px) {
+            #html-content {
+                padding: 20px;
+                margin: 20px;
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        footer ul li {
+            margin: 0;
+        }
+
+        footer ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer ul li a:hover {
+            color: #ff6347;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="html.html">HTML</a></li>
+                <li><a href="css.html">CSS</a></li>
+                <li><a href="javascript.html">JavaScript</a></li>
+                <li><a href="esercitazioni.html">Esercitazioni</a></li>
+                <li><a href="quiz.html">Quiz Front-End</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="html-content">
+        <h1>HTML - Fondamenta del Web</h1>
+        <p>HTML (HyperText Markup Language) è il linguaggio usato per creare la struttura delle pagine web. Di seguito trovi una spiegazione delle principali regole di HTML con esempi pratici.</p>
+
+        <h2>Introduzione</h2>
+        <p>HTML è un linguaggio di markup utilizzato per definire la struttura e il contenuto di una pagina web. Ogni elemento HTML è rappresentato da un tag, che può avere attributi specifici per configurare il comportamento o l'aspetto dell'elemento.</p>
+
+        <h2>Editor HTML</h2>
+        <p>Per scrivere codice HTML puoi utilizzare vari editor, da semplici editor di testo come il Blocco Note fino ad ambienti di sviluppo più complessi come VS Code, Sublime Text o Atom.</p>
+
+        <h2>Attributi HTML</h2>
+        <p>Gli attributi HTML sono utilizzati per fornire ulteriori informazioni sugli elementi. Ad esempio, il tag <code>&lt;a&gt;</code> ha un attributo <code>href</code> per specificare l'URL:</p>
+        <div class="code-snippet">
+            &lt;a href="https://www.example.com" target="_blank"&gt;Vai a Example&lt;/a&gt;
+        </div>
+
+        <h2>Paragrafi e Titoli</h2>
+        <p>I paragrafi sono definiti con il tag <code>&lt;p&gt;</code>, mentre i titoli vanno da <code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code> per specificare l'importanza del titolo, dove <code>&lt;h1&gt;</code> è il più importante.</p>
+        <div class="code-snippet">
+            &lt;h1&gt;Titolo Principale&lt;/h1&gt;<br>
+            &lt;p&gt;Questo è un paragrafo.&lt;/p&gt;
+        </div>
+
+        <h2>Formattazione Testo</h2>
+        <p>Puoi utilizzare vari tag per formattare il testo, come <code>&lt;b&gt;</code> per il grassetto, <code>&lt;i&gt;</code> per il corsivo e <code>&lt;u&gt;</code> per sottolineare il testo.</p>
+        <div class="code-snippet">
+            &lt;p&gt;Questo è un &lt;b&gt;testo in grassetto&lt;/b&gt;, &lt;i&gt;corsivo&lt;/i&gt;, e &lt;u&gt;sottolineato&lt;/u&gt;.&lt;/p&gt;
+        </div>
+
+        <h2>Quotazioni e Commenti</h2>
+        <p>Per aggiungere citazioni puoi usare il tag <code>&lt;blockquote&gt;</code>. I commenti HTML, che non vengono visualizzati dall'utente, possono essere aggiunti con <code>&lt;!-- commento --&gt;</code>.</p>
+        <div class="code-snippet">
+            &lt;blockquote&gt;Questa è una citazione.&lt;/blockquote&gt;<br>
+            &lt;!-- Questo è un commento HTML --&gt;
+        </div>
+
+        <h2>Collegamenti e Immagini</h2>
+        <p>I collegamenti e le immagini sono elementi essenziali del web. Il tag <code>&lt;img&gt;</code> è utilizzato per incorporare immagini, mentre il tag <code>&lt;a&gt;</code> crea link ipertestuali.</p>
+        <div class="code-snippet">
+            &lt;a href="https://www.example.com"&gt;Link a Example&lt;/a&gt;<br>
+            &lt;img src="immagini/logo.png" alt="Logo del sito"&gt;
+        </div>
+
+        <h2>Favicon</h2>
+        <p>Una favicon è una piccola icona che rappresenta il sito web nel browser. Puoi aggiungerla con il seguente tag nel <code>&lt;head&gt;</code>:</p>
+        <div class="code-snippet">
+            &lt;link rel="icon" href="favicon.ico" type="image/x-icon"&gt;
+        </div>
+
+        <h2>Div e Span</h2>
+        <p>Il tag <code>&lt;div&gt;</code> è usato per raggruppare blocchi di contenuto, mentre il tag <code>&lt;span&gt;</code> è usato per stilizzare specifiche parti di testo inline.</p>
+        <div class="code-snippet">
+            &lt;div&gt;Questa è una sezione di contenuto.&lt;/div&gt;<br>
+            &lt;span style="color: red;"&gt;Questo è testo colorato&lt;/span&gt;
+        </div>
+
+        <h2>JavaScript nel HTML</h2>
+        <p>Per aggiungere funzionalità interattive alla tua pagina HTML puoi utilizzare JavaScript. Puoi inserire il codice JavaScript direttamente nella pagina con il tag <code>&lt;script&gt;</code>.</p>
+        <div class="code-snippet">
+            &lt;script&gt;<br>
+            &nbsp;&nbsp;alert('Benvenuto nella mia pagina!');<br>
+            &lt;/script&gt;
+        </div>
+
+        <h2>File Paths</h2>
+        <p>Il percorso di un file (file path) può essere assoluto o relativo. Ad esempio, il percorso <code>./immagini/logo.png</code> fa riferimento a una directory locale.</p>
+
+        <h2>Responsive Design</h2>
+        <p>Per rendere il tuo sito web adattabile a diversi dispositivi, puoi utilizzare tecniche di responsive design come le media query e attributi di larghezza in percentuale.</p>
+        <div class="code-snippet">
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+            &lt;style&gt;<br>
+            &nbsp;&nbsp;@media (max-width: 600px) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;body { font-size: 14px; }<br>
+            &nbsp;&nbsp;}<br>
+            &lt;/style&gt;
+        </div>
+
+        <h2>Tabelle</h2>
+        <p>Le tabelle sono utili per visualizzare dati strutturati in formato tabellare. Ecco un esempio:</p>
+        <div class="code-snippet">
+            &lt;table&gt;<br>
+            &nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Nome&lt;/th&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Età&lt;/th&gt;<br>
+            &nbsp;&nbsp;&lt;/tr&gt;<br>
+            &nbsp;&nbsp;&lt;tr&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Mario&lt;/td&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;30&lt;/td&gt;<br>
+            &nbsp;&nbsp;&lt;/tr&gt;<br>
+            &lt;/table&gt;
+        </div>
+
+        <h2>Liste</h2>
+        <p>HTML supporta sia liste ordinate che non ordinate per organizzare il contenuto:</p>
+        <div class="code-snippet">
+            &lt;h3&gt;Lista Ordinata&lt;/h3&gt;<br>
+            &lt;ol&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Elemento 1&lt;/li&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Elemento 2&lt;/li&gt;<br>
+            &lt;/ol&gt;<br><br>
+            &lt;h3&gt;Lista Non Ordinata&lt;/h3&gt;<br>
+            &lt;ul&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Elemento A&lt;/li&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;Elemento B&lt;/li&gt;<br>
+            &lt;/ul&gt;
+        </div>
+
+        <h2>Form</h2>
+        <p>I form sono usati per raccogliere dati dagli utenti:</p>
+        <div class="code-snippet">
+            &lt;form action="/invia-dati" method="post"&gt;<br>
+            &nbsp;&nbsp;&lt;label for="nome"&gt;Nome:&lt;/label&gt;<br>
+            &nbsp;&nbsp;&lt;input type="text" id="nome" name="nome"&gt;<br><br>
+            &nbsp;&nbsp;&lt;label for="email"&gt;Email:&lt;/label&gt;<br>
+            &nbsp;&nbsp;&lt;input type="email" id="email" name="email"&gt;<br><br>
+            &nbsp;&nbsp;&lt;input type="submit" value="Invia"&gt;<br>
+            &lt;/form&gt;
+        </div>
+
+        <h2>Metatag</h2>
+        <p>I metatag sono usati per fornire metadati sul documento HTML. Ad esempio, il tag <code>&lt;meta&gt;</code> può specificare la descrizione, il set di caratteri, e altre informazioni:</p>
+        <div class="code-snippet">
+            &lt;meta charset="UTF-8"&gt;<br>
+            &lt;meta name="description" content="Questa è una pagina di esempio"&gt;
+        </div>
+
+        <h2>Attributi Globali</h2>
+        <p>Gli attributi globali possono essere usati su qualsiasi elemento HTML. Ad esempio, <code>id</code>, <code>class</code>, e <code>style</code> sono attributi globali che possono essere applicati per identificare elementi o aggiungere stili:</p>
+        <div class="code-snippet">
+            &lt;div id="sezione1" class="contenitore" style="background-color: lightblue;"&gt;Contenuto della sezione&lt;/div&gt;
+        </div>
+
+        <h2>IFrame</h2>
+        <p>Il tag <code>&lt;iframe&gt;</code> viene utilizzato per incorporare un'altra pagina web all'interno di una pagina HTML. Ad esempio, puoi incorporare un video di YouTube o un'altra pagina web:</p>
+        <div class="code-snippet">
+            &lt;iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" width="560" height="315"&gt;&lt;/iframe&gt;
+        </div>
+
+        <h2>Attributo Data-*</h2>
+        <p>L'attributo <code>data-*</code> viene utilizzato per memorizzare dati personalizzati sugli elementi HTML, spesso usato in combinazione con JavaScript per interazioni dinamiche:</p>
+        <div class="code-snippet">
+            &lt;button id="myButton" data-info="Esempio di Data"&gt;Cliccami&lt;/button&gt;
+        </div>
+
+        <h2>Sezione Head e Headings</h2>
+        <p>La sezione <code>&lt;head&gt;</code> è la parte del documento HTML dove vengono inseriti titoli, metatag e collegamenti ai file CSS o JavaScript. Gli headings, come <code>&lt;h1&gt;</code> - <code>&lt;h6&gt;</code>, definiscono i titoli principali e secondari:</p>
+        <div class="code-snippet">
+            &lt;head&gt;<br>
+            &nbsp;&nbsp;&lt;title&gt;Titolo della Pagina&lt;/title&gt;<br>
+            &nbsp;&nbsp;&lt;link rel="stylesheet" href="styles.css"&gt;<br>
+            &lt;/head&gt;
+        </div>
+    </section>
+
+    <footer>
+        <p>Contatti: biagio.scaglia01@gmail.it</p>
+        <p>Seguimi sui social:</p>
+        <ul>
+            <li><a href="https://linkedin.com/in/biagio-scaglia">LinkedIn</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
